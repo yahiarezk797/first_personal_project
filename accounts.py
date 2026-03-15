@@ -1,10 +1,15 @@
+from argon2 import PasswordHasher
+
+ph = PasswordHasher()
+
+
 class Accounts:
     def __init__(self, id, name,pwd, money):
         if int(money) < 0:
-            raise ValueError("Das Betrag soll positiv sein.")
+            raise ValueError("The amount should be positive")
         self.id = int(id)
         self.name = name
-        self.pwd = pwd
+        self.pwd = ph.hash(pwd)
         self.money = int(money)
 
     def __eq__(self, acc):
@@ -12,7 +17,7 @@ class Accounts:
     
     def trans(self, acc, amount):
         if amount <= 0:
-            raise ValueError("Das Betrag soll positiv sein.")
+            raise ValueError("The amount should be positive")
         if self.money < amount:
             return False
         self.money -= amount
@@ -21,12 +26,12 @@ class Accounts:
 
     def add(self, amount):
         if amount <= 0:
-            raise ValueError("Das Betrag soll positiv sein.")
+            raise ValueError("The amount should be positive")
         self.money += amount
 
     def pull(self, amount):
         if amount <= 0:
-            raise ValueError("Das Betrag soll positiv sein.")
+            raise ValueError("The amount should be positive")
         self.money -= amount
 
     def __repr__(self):
