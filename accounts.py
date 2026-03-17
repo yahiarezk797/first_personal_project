@@ -1,6 +1,3 @@
-from argon2 import PasswordHasher
-
-ph = PasswordHasher()
 
 
 class Accounts:
@@ -9,7 +6,7 @@ class Accounts:
             raise ValueError("The amount should be positive")
         self.id = int(id)
         self.name = name
-        self.pwd = ph.hash(pwd)
+        self.pwd = pwd
         self.money = int(money)
 
     def __eq__(self, acc):

@@ -1,6 +1,9 @@
 from accounts import *
 from functions import *
+from argon2 import PasswordHasher
 
+
+ph = PasswordHasher()
 
 def main():
     print("Welcome!")
@@ -36,7 +39,7 @@ def main():
 
     else:
         name = input("Name: ")
-        pwd = input("Passwort: ")
+        pwd = ph.hash(input("Passwort: "))
         amount = input("Amount: ") 
         print(creat_an_account(name, pwd, amount))
 
