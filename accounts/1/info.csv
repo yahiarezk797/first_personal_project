@@ -1,3 +1,2 @@
 id,name,password,money
-0,Yahia,"$argon2id$v=19$m=102400,t=2,p=8$6xceW29xDSfp1DtMYyPGug$3BuyhCUoc7EgQQr+ZxrIrw",790
 1,Osama,"$argon2id$v=19$m=102400,t=2,p=8$GuBbvu1BVgmaKC7VfK4XAw$WMmKaUDWHUk4rcewEH+XIw",470
